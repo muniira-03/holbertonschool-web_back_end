@@ -2,7 +2,8 @@
 import csv
 import math
 from typing import List, Dict, Any
-from simple_helper_function import index_range  # Make sure the filename is correct
+from simple_helper_function import index_range
+
 
 class Server:
     DATA_FILE = "Popular_Baby_Names.csv"
@@ -29,15 +30,22 @@ class Server:
         return dataset[start:end]
 
     def get_hyper(self, page: int = 1, page_size: int = 10) -> Dict[str, Any]:
+        assert isinstance(page, int) and page > 0
+        assert isinstance(page_size, int) and page_size > 0
+
         data = self.get_page(page, page_size)
         dataset_len = len(self.dataset())
         total_pages = math.ceil(dataset_len / page_size)
+        page_size_actual = len(data)
+
+        next_page = page + 1 if page < total_pages else None
+        prev_page = page - 1 if page > 1 else None
 
         return {
-            "page_size": len(data),
+            "page_size": page_size_actual,
             "page": page,
             "data": data,
-            "next_page": page + 1 if page < total_pages else None,
-            "prev_page": page - 1 if page > 1 else None,
+            "next_page": next_page,
+            "prev_page": prev_page,
             "total_pages": total_pages
         }
