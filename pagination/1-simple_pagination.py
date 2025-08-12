@@ -19,7 +19,7 @@ class Server:
             with open(self.DATA_FILE) as f:
                 reader = csv.reader(f)
                 dataset = [row for row in reader]
-            self.__dataset = dataset[1:]  
+            self.__dataset = dataset[1:]
 
         return self.__dataset
 
@@ -34,11 +34,14 @@ class Server:
         Returns:
             List[List]: A list of rows for the requested page.
         """
-        
+
         assert isinstance(page, int) and page > 0
         assert isinstance(page_size, int) and page_size > 0
 
         start, end = index_range(page, page_size)
         dataset = self.dataset()
+
+        if start >= len(dataset):
+            return []
 
         return dataset[start:end]
