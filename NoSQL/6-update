@@ -1,1 +1,5 @@
-
+// comment
+db.school.updateMany(
+    {name : "holberton school"},
+    {$set : {address : "972 Mission street"}}
+)
