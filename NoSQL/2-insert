@@ -1,2 +1,6 @@
-// comment
-db.school.insertOne({name;"holberton school})
+// my comment
+db.school.insertOne({
+  "name": "John Doe",
+  "age": 25,
+  "address": "New York"
+})
