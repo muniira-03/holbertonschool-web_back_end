@@ -1,1 +1,2 @@
-
+// no comment 
+db.school.count()
