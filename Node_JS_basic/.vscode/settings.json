@@ -1,0 +1,22 @@
+{
+    // Always insert a newline at the end of file
+    "files.insertFinalNewline": true,
+  
+    // Remove extra spaces at the end of lines
+    "files.trimTrailingWhitespace": true,
+  
+    // Use 2 spaces for indentation (Holberton standard for JS)
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+  
+    // Format on save (fixes indentation and spacing automatically)
+    "editor.formatOnSave": true,
+  
+    // ESLint integration (important for Holberton projects)
+    "eslint.alwaysShowStatus": true,
+    "eslint.validate": ["javascript"],
+  
+    // Show whitespace characters (helpful to debug spacing issues)
+    "editor.renderWhitespace": "all"
+  }
+  
